@@ -1,0 +1,42 @@
+body{
+    
+    height: 90 vh;
+    width: 100vw;
+
+}
+svg{
+    min-width: 20vmin;
+    min-height: 20vmin;
+    max-height: 20vmin;
+    max-width: 20vmin;
+    border: solid black 1px;
+    fill: white
+    
+
+}
+svg rect {
+stroke: black;
+
+}
+svg circle {
+    stroke: black;
+
+}
+#grid{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width:60vw
+}
+.circle{
+
+}
+.rect{
+
+}
+.diamond{
+
+}
+.fill{
+    fill:black;
+}
