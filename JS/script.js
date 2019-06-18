@@ -1,14 +1,5 @@
-const store = {
-    matrix: [
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-    ]
-};
 
-const matrixDiv = Object.assign([], store.matrix);
+
 let grid = document.getElementById("grid")
 let index = 0;
 let shape = "round"
@@ -23,15 +14,15 @@ unfill.addEventListener("click",()=>{
     $(".box").removeClass("fill")
 })
 
-
+// populate the svg tags with rect and circles
 for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
         let element = grid.children[i * 5 + j]
-        console.log("mmh")
         if (i === j && (i != 2 || j != 2)) {
             let p = document.createElementNS("http://www.w3.org/2000/svg", `rect`)
             $(p).attr("x", "0")
             $(p).attr("y", "0")
+            
             $(p).attr("width", "100")
             $(p).attr("height", "100")
             $(`#grid:nth-child(${i*5+j})`).append($(p))
@@ -41,40 +32,35 @@ for (let i = 0; i < 5; i++) {
             shape = "square"
         } else if (i === 2 && j === 2) {
             let p = document.createElementNS("http://www.w3.org/2000/svg", `rect`)
-            $(p).attr("x", "35")
-            $(p).attr("y", "-35")
-            $(p).attr("width", "70")
-            $(p).attr("height", "70")
-            $(p).attr("style", "transform:rotate(45deg)");
+            $(p).attr({
+                x:35,
+                y:-35,
+                width:70,
+                height:70,
+                style:"transform:rotate(45deg)"
+            })
             $(`#grid:nth-child(${i*5+j})`).append($(p))
             element.appendChild(p)
             $(element).addClass("diamond")
-            shape = "diamond"
         } else {
             
             // adds id to each svg
             $(element).attr("id", `${j}${i}`)
             // create a NS element with svg link 
             let p = document.createElementNS("http://www.w3.org/2000/svg", `circle`)
-            $(p).attr("cx", "50")
-            $(p).attr("cy", "50")
-            $(p).attr("r", "50")
-            $(p).attr("width", "100")
-            $(p).attr("height", "100")
+            $(p).attr({
+                cx:50,
+                cy:50,
+                r:50
+            })
             $(`#grid:nth-child(${i*5+j})`).append($(p))
             $(element).addClass("round")
-shape = "round"
             element.appendChild(p)
         }
 
 
 
         ///
-
-        store.matrix[j][i] = {
-            "shape": shape,
-            "fill": "empty"
-        }
 
         element.addEventListener("click", () => {
 
@@ -84,7 +70,6 @@ shape = "round"
                     } else {
 
                         $(element).removeClass("fill")
-                        store.matrix[j][i].fill = "empty"
                     }
 
                     // case of square
@@ -118,11 +103,9 @@ shape = "round"
                         // console.log(i+" "+l)
                         if(!$(grid.children[l+i*5]).hasClass("fill")){
                             $(grid.children[l+i*5]).addClass("fill")
-                            store.matrix[l][i].fill ==="full"
                         }
                         else{
                             $(grid.children[l+i*5]).removeClass("fill" )
-                            store.matrix[l][i].fill ==="empty"
                         }
                     }
 
@@ -149,9 +132,7 @@ shape = "round"
 
                     for(let k = 0; k<5;k++){
                         if(delayedFill === false){
-                            $(grid.children[j+k*5]).removeClass("fill")
-                            
-                            
+                            $(grid.children[j+k*5]).removeClass("fill")                  
                         }
                         else {
                             $(grid.children[j+k*5]).addClass("fill")
