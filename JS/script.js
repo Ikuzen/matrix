@@ -2,13 +2,15 @@
 
 let grid = document.getElementById("grid")
 let index = 0;
-let shape = "round"
+// adds class to all svg tags
 $("svg").addClass("box");
 
+// button fill all
 const fillAll = document.getElementById("fill-all")
 fillAll.addEventListener("click",()=>{
     $(".box").addClass("fill")
 })
+//button unfill
 const unfill = document.getElementById("unfill")
 unfill.addEventListener("click",()=>{
     $(".box").removeClass("fill")
@@ -18,19 +20,20 @@ unfill.addEventListener("click",()=>{
 for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
         let element = grid.children[i * 5 + j]
+        // case of rect not in the middle
         if (i === j && (i != 2 || j != 2)) {
             let p = document.createElementNS("http://www.w3.org/2000/svg", `rect`)
-            $(p).attr("x", "0")
-            $(p).attr("y", "0")
-            
-            $(p).attr("width", "100")
-            $(p).attr("height", "100")
             $(`#grid:nth-child(${i*5+j})`).append($(p))
             element.appendChild(p)
             $(element).addClass("square")
-
-            shape = "square"
-        } else if (i === 2 && j === 2) {
+            $(p).attr({
+                x:0,
+                y:0,
+                width:100,
+                height:100,
+            })
+        }
+         else if (i === 2 && j === 2) {
             let p = document.createElementNS("http://www.w3.org/2000/svg", `rect`)
             $(p).attr({
                 x:35,

@@ -1,8 +1,10 @@
 body{
     
-    height: 90 vh;
+    height: 90vh;
     width: 100vw;
-
+    display: grid;
+    grid-template-areas: "grid buttons";
+    grid-template-rows: 80% auto
 }
 svg{
     min-width: 20vmin;
@@ -14,6 +16,9 @@ svg{
     
 
 }
+#buttons{
+    grid-area: buttons
+}
 svg rect {
 stroke: black;
 
@@ -23,6 +28,7 @@ svg circle {
 
 }
 #grid{
+    grid-area: grid;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
