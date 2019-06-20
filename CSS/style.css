@@ -7,12 +7,10 @@ body{
     grid-template-rows: 80% auto
 }
 svg{
-    min-width: 20vmin;
-    min-height: 20vmin;
-    max-height: 20vmin;
-    max-width: 20vmin;
+    
     border: solid black 1px;
-    fill: white
+    fill: white;
+    
     
 
 }
@@ -30,9 +28,9 @@ svg circle {
 #grid{
     grid-area: grid;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    width:60vw
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
 }
 .circle{
 
