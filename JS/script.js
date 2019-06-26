@@ -209,11 +209,11 @@ function addGrid() {
     grid.style = `grid-template-rows:${gridSize}`
     grid.style = ` grid-template-columns:${gridSize}`
     $('svg').css({
-        'width': `${35-35*(size*2/100)}vmin`,
-        'height': `${35-35*(size*2/100)}vmin`,
+        'width': `${100/size}vmin`,
+        'height': `${100/size}vmin`,
     });
     $('circle').css({
-        'width': `${35-35*(size*2/100)}vmin`,
-        'height': `${35-35*(size*2/100)}vmin`,
+        'width': `${100/size}vmin`,
+        'height': `${100/size}vmin`,
     })
 }
